@@ -13,44 +13,52 @@ console.groupEnd();
 
 //Triangulo
 console.group("Triángulos");
-const ladoTriangulo1=6;
-const ladoTriangulo2=6;
-const baseTriangulo=4;
-const alturaTriangulo=5.5;
 
-console.log("Los lados del Triangulo miden: "
-        + ladoTriangulo1
-        + "cm, "
-        + ladoTriangulo2
-        + "cm, "
-        + baseTriangulo
-        + "cm"
-    );
+function perimetroTriangulo(lado1, lado2, base){
+    return lado1 + lado2 + base;
+}
 
-console.log("la altura del triángulo es: " + alturaTriangulo); 
-
-const perimetroTriangulo1=ladoTriangulo1+ladoTriangulo2+baseTriangulo;
-console.log("El prímetro del Triangulo es: " + perimetroTriangulo1 + "cm");
-
-const areaTriangulo1=(baseTriangulo * alturaTriangulo)/2;
-console.log("El área del Triangulo es: " + areaTriangulo1 + "cm2");
+function areaTriangulo(base, altura){
+    return (base * altura) / 2;
+}
 console.groupEnd();
 
 //Circulo
 console.group("Círculos");
 
-const radioCirculo=4;
-const diametroCirculo= radioCirculo *2;
-const PI = Math.PI;
-const perimetroCirculo = diametroCirculo * PI;
-const areaCirculo = (radioCirculo * radioCirculo) * PI;
+function diametroCirculo(radio){
+    return radio * 2;
+}
+function perimetroCirculo(radio){
+    const diametro = diametroCirculo(radio);
+    return diametro * Math.PI;
+} 
 
-console.log("El radio del Círculo es: " + radioCirculo + "cm");
-console.log("El diámetro del Círculo es: " + diametroCirculo + "cm");
-console.log("El perímetro del Círculo es: " + perimetroCirculo + "cm");
-console.log("El área del Círculo es: " + areaCirculo + "cm2");
-
+function areaCirculo(radio){
+    return (radio * radio) * Math.PI;
+} 
 
 console.groupEnd();
 
 
+function calcularPerimetroCuadrado(){
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+    const perimetro = perimetroCuadrado(value);
+    hablar("El perímetro del cuadrado es de " + perimetro + "cm");
+    //alert(perimetro);
+}
+
+function calcularAreaCuadrado(){
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+    const area = areaCuadrado(value);
+    hablar("El área del cuadrado es " + area + "cm2");
+    //alert(area);
+}
+
+function hablar(texto){
+    var utterance = new SpeechSynthesisUtterance(texto);
+    window.speechSynthesis.speak(utterance);
+
+}
