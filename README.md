@@ -9,3 +9,5 @@ Curso Practico de JavaScript de Platzi
 ## Taller 2. Descuentos y Porcentajes
     Pagina web para calcular descuentos
 
+## Taller 3. Mediana, Promedio y Moda
+    
